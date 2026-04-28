@@ -1,53 +1,53 @@
-import {useContext}from "react";
-import {useNavigate}from "react-router-dom";
-import {AppContext}from "../context/AppContext";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AppContext } from "../../context/AppContext";
 
-const Summary=()=>{
-    const navigate=useNavigate();
+export const Summary=()=>{
+
+const navigate=useNavigate();
 
 const {
 spacesList,
 reservations,
 cancelReservation
 }
-=useContext(AppContext);
+=
+useContext(AppContext);
 
 
 const totalSpaces=spacesList.length;
 const available=spacesList.filter(space=>space.available).length;
 
 const activeReservations=reservations.length;
-
-
-let totalIncome=0;
-
-reservations.forEach(item=>{totalIncome+=item.total});
-
+reservations.forEach((item:any)=>{totalIncome+=item.total});
 
 return(
+
+
 <div>
 
-<h1>resumen xd</h1>
+<h1>el resumen :D</h1>
 
 <button onClick={()=>navigate("/")}>volver</button>
 
-<p>tootal:{totalSpaces}</p>
-<p>dispo:{available}</p>
-<p>reservas:{activeReservations}</p>
-<p>ingresos:{totalIncome}</p>
+<p>total espaicos: {totalSpaces}</p>
 
-{reservations.length===0?<p>no hay reservas :c</p>:
+<p>disponibvle: {available}</p>
 
-reservations.map(item=>(<div key={item.id}>
+<p> reservas: {activeReservations}</p>
+
+
+{reservations.length===0?<p>no hay reservas :cc</p>
+:
+reservations.map((item:any)=>(<div key={item.id}>
+
 <p>{item.name}</p>
 
-<button onClick={()=>cancelReservation(item.id)}>cancelar la resrva</button>
-
+<button onClick={()=>cancelReservation(item.id)}>cancelar reserva aqui</button>
 </div>
 ))
 }
 </div>
+)
 
-)}
-
-export default Summary;
+}

@@ -11,6 +11,8 @@ createRoot(document.getElementById('root')!).render(
 		<Provider store={storeRedux}>
 			<AppContextProvider>
 				<App />
+
+				
 			</AppContextProvider>
 		</Provider>
 	</StrictMode>,

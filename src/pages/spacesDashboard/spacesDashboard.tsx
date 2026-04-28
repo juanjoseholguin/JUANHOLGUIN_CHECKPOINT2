@@ -1,45 +1,47 @@
-import {useContext}from "react";
-import {useNavigate}from "react-router-dom";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AppContext } from "../../context/AppContext";
+import SpaceCard from "../../components/spaceCard";
 
-import {AppContext} from "../context/AppContext";
-import SpaceCard from "../components/SpaceCard";
-
-const SpacesDashboard=()=>{
+export const SpacesDashboard=()=>{
 const {
 spacesList,
 typeFilter,
 setTypeFilter
 }
-=
-useContext(AppContext);
-const navigate= useNavigate();
+=useContext(AppContext);
+const navigate=useNavigate();
 
-
-const filteredSpaces=typeFilter==="all"?spacesList:
-spacesList.filter(
-space=>space.type===typeFilter
+const filteredSpaces=typeFilter==="all"
+? spacesList
+: spacesList.filter(
+space=>
+space.type===typeFilter
 );
 
 return(
-
 <>
+
 <h1>espacios</h1>
-<button onClick={()=>setTypeFilter("all")}>todos los que hay</button>
 
-<button onClick={()=>setTypeFilter("meeting room :D")}>me3etings</button>
+<button onClick={()=>setTypeFilter("all")}>todsss</button>
+<button onClick={()=>setTypeFilter("meeting sala")}>salaa meeting</button>
 
+<button onClick={()=>setTypeFilter("oficina privada")}>Private Office</button>
 
-<button onClick={()=>setTypeFilter("private office")}>private :D</button>
-
-
-<button onClick={()=>navigate("/summary")}> resumenn</button>
+<button onClick={()=>navigate("/summary")}>Resumen</button>
 
 
-{filteredSpaces.map(space=>(<SpaceCardkey={space.id}space={space}/>))}
-
-</>
-
-)
+{
+filteredSpaces.map(space=>(
+<SpaceCard
+key={space.id}
+space={space}
+/>
+))
 }
 
-export default SpacesDashboard;
+</>
+)
+
+}

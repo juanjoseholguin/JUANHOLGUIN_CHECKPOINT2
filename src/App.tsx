@@ -11,18 +11,11 @@ function App(){
 return(
 <spacesProvider>
 <Routes>
-<Route
-  path="/"
- element={
-<spacesDashboard/>
-}
+<Route path="/" element={<spacesDashboard/>}
 />
-<Route
-path="/summary"
-element={
-<Summary/>}
+<Route path="/summary" element={<Summary/>}
 /> </Routes>
-</SpacesProvider>
+</spacesProvider>
 )
 
 }
